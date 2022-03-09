@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-merlin-core
+Merlin Core
 ===========
 
-merlin-core contains core utilities and classes for the NVIDIA Merlin project.
+The Merlin Core library provides core utilities and classes for the NVIDIA Merlin project.
 
 .. toctree::
    :maxdepth: 2
