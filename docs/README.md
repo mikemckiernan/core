@@ -31,7 +31,7 @@ here](https://nvidia-merlin.github.io/core).
    directory:
 
    ```sh
-   http-server build/html
+   python -m http.server -d build/html
    ```
 
    (http-server can be installed with `npm install --global http-server`)
