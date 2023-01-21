@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="canonical" href="https://nvidia-merlin.github.io/models/main/api/merlin.io.html" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -27,7 +28,14 @@
     <link rel="prev" title="merlin.dag package" href="merlin.dag.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+  <div class="banner">
+    <p class="banner">
+      Beginning in January 2023, versions for all NVIDIA Merlin projects
+      will change from semantic versioning like <code>4.0</code>
+      to calendar versioning like <code>23.01</code>.</p>
+  </div>
+
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
@@ -216,11 +224,8 @@ used to preserve file-partition mapping information.</p></li>
 <li><p><strong>schema</strong> (<a class="reference internal" href="merlin.schema.html#merlin.schema.Schema" title="merlin.schema.Schema"><em>Schema</em></a>) – Optional argument, to support custom user defined Schemas.
 This overrides the derived schema behavior.</p></li>
 <li><p><strong>**kwargs</strong> – Key-word arguments to pass through to Dask.dataframe IO function.
-For the Parquet engine(s), notable arguments include <cite>filters</cite>,
-<cite>aggregate_files</cite>, and <cite>gather_statistics</cite>. Note that users who
-do not need to know the number of rows in their dataset (and do
-not plan to preserve a file-partition mapping) may wish to use
-<cite>gather_statistics=False</cite> for better client-side performance.</p></li>
+For the Parquet engine(s), notable arguments include <cite>filters</cite>
+and <cite>aggregate_files</cite> (the latter is experimental).</p></li>
 </ul>
 </dd>
 </dl>

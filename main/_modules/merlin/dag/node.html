@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
     <link rel="canonical" href="https://nvidia-merlin.github.io/models/main/_modules/merlin/dag/node.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
@@ -25,7 +26,14 @@
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+  <div class="banner">
+    <p class="banner">
+      Beginning in January 2023, versions for all NVIDIA Merlin projects
+      will change from semantic versioning like <code>4.0</code>
+      to calendar versioning like <code>23.01</code>.</p>
+  </div>
+
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
@@ -140,7 +148,14 @@
 
     <span class="c1"># These methods must maintain grouping</span>
 <div class="viewcode-block" id="Node.add_dependency"><a class="viewcode-back" href="../../../api/merlin.dag.html#merlin.dag.Node.add_dependency">[docs]</a>    <span class="k">def</span> <span class="nf">add_dependency</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">dep</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">,</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">]]]</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dep</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="nb">str</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+            <span class="n">ColumnSelector</span><span class="p">,</span>
+            <span class="s2">&quot;Node&quot;</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">]],</span>
+        <span class="p">],</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adding a dependency node to this node</span>
@@ -163,7 +178,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dep_node</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Node.add_parent"><a class="viewcode-back" href="../../../api/merlin.dag.html#merlin.dag.Node.add_parent">[docs]</a>    <span class="k">def</span> <span class="nf">add_parent</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">,</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">]]]</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">parent</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="nb">str</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+            <span class="n">ColumnSelector</span><span class="p">,</span>
+            <span class="s2">&quot;Node&quot;</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">]],</span>
+        <span class="p">],</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adding a parent node to this node</span>
@@ -184,7 +206,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">parents</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">parent_nodes</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Node.add_child"><a class="viewcode-back" href="../../../api/merlin.dag.html#merlin.dag.Node.add_child">[docs]</a>    <span class="k">def</span> <span class="nf">add_child</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">child</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">,</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">]]]</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">child</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="nb">str</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+            <span class="n">ColumnSelector</span><span class="p">,</span>
+            <span class="s2">&quot;Node&quot;</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">]],</span>
+        <span class="p">],</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adding a child node to this node</span>
@@ -205,7 +234,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">child_nodes</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Node.remove_child"><a class="viewcode-back" href="../../../api/merlin.dag.html#merlin.dag.Node.remove_child">[docs]</a>    <span class="k">def</span> <span class="nf">remove_child</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">child</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">,</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">]]]</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">child</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="nb">str</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+            <span class="n">ColumnSelector</span><span class="p">,</span>
+            <span class="s2">&quot;Node&quot;</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="n">ColumnSelector</span><span class="p">]],</span>
+        <span class="p">],</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Removing a child node from this node</span>
